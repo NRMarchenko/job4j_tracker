@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.oop.Computer;
+
 public class Item {
     private int id;
     private String name;
@@ -18,5 +20,31 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Item() {
+    }
+
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public void printInfo() {
+        System.out.println("ID: " + id);
+        System.out.println("Имя: " + name);
+    }
+
+    public static void main(String[] args) {
+        Item first = new Item(500, "Деталь");
+        first.printInfo();
+        Item second = new Item("Сборка");
+        second.printInfo();
+        Item third = new Item();
+        third.printInfo();
     }
 }
