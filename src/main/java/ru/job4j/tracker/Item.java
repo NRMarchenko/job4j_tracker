@@ -32,17 +32,6 @@ public class Item {
         this.name = name;
     }
 
-    public void printInfo() {
-        System.out.println("ID: " + id);
-        System.out.println("Имя: " + name);
-    }
-
     public static void main(String[] args) {
-        Item first = new Item(500, "Деталь");
-        first.printInfo();
-        Item second = new Item("Сборка");
-        second.printInfo();
-        Item third = new Item();
-        third.printInfo();
     }
 }
