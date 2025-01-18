@@ -63,6 +63,17 @@ public class Tracker {
             return true;
         }
         return false;
+    }
 
+    public void delete(int id) {
+        int distPos = indexOf(id);
+        if (distPos != -1) {
+            int start = distPos + 1;
+            int length = size - distPos - 1;
+            items[distPos] = null;
+            System.arraycopy(items, start, items, distPos, length);
+            items[size - 1] = null;
+            size--;
+        }
     }
 }
