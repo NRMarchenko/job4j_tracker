@@ -25,7 +25,7 @@ public class Library {
         System.out.println();
         for (int index = 0; index < books.length; index++) {
             Book book = books[index];
-            if (book.equals(books[1])) {
+            if (book.getName() == "Clean code") {
                 System.out.println(book.getName() + " - " + book.getPageCount());
             }
         }
