@@ -57,17 +57,18 @@ public class Tracker {
 
     public boolean replace(int id, Item updateItem) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean result = index != -1;
+        if (result) {
             updateItem.setId(id);
             items[index] = updateItem;
-            return true;
         }
-        return false;
+        return result;
     }
 
     public void delete(int id) {
         int distPos = indexOf(id);
-        if (distPos != -1) {
+        boolean result = distPos != -1;
+        if (result) {
             int start = distPos + 1;
             int length = size - distPos - 1;
             items[distPos] = null;
