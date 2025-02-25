@@ -31,7 +31,7 @@ public class StartUI {
                 System.out.println("=== Редактирование заявки ===");
                 System.out.print("Введите id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                System.out.println("Введите имя: ");
+                System.out.print("Введите имя: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 if (tracker.replace(id, item)) {
