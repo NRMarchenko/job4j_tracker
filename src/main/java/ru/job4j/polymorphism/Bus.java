@@ -1,7 +1,5 @@
 package ru.job4j.polymorphism;
 
-import java.sql.SQLOutput;
-
 public class Bus implements  Transport {
     @Override
     public void move() {
