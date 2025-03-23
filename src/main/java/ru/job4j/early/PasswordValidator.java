@@ -22,6 +22,7 @@ public class PasswordValidator {
      * @param password Пароль
      * @return Вернет пароль или выбросит исключение.
      */
+    @SuppressWarnings("checkstyle:SimplifyBooleanExpression")
     public static String validate(String password) {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
@@ -29,41 +30,34 @@ public class PasswordValidator {
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
+        for (String forbiddenWord : FORBIDDEN) {
+            if (password.toLowerCase().contains(forbiddenWord)) {
+                throw new IllegalArgumentException(
+                        "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
+                );
+            }
+        }
 
         boolean hasUpCase = false;
         boolean hasLowCase = false;
         boolean hasDigit = false;
         boolean hasSpecial = false;
-        boolean forbidden = false;
-
-        for (String forbiddenWord : FORBIDDEN) {
-            if (password.toLowerCase().contains(forbiddenWord)) {
-                forbidden = true;
-                break;
-            }
-        }
-
-        if (forbidden) {
-            throw new IllegalArgumentException(
-                    "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
-            );
-        }
 
         for (char symbol : password.toCharArray()) {
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
-                continue;
             }
             if (Character.isLowerCase(symbol)) {
                 hasLowCase = true;
-                continue;
             }
             if (Character.isDigit(symbol)) {
                 hasDigit = true;
-                continue;
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                break;
             }
         }
         if (!hasUpCase) {
