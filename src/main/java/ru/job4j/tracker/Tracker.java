@@ -18,23 +18,11 @@ public class Tracker {
         return index != -1 ? items.get(index) : null;
     }
 
-/*    private int indexOf(int id) {
-        int result = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
-                result = index;
-                break;
-            }
-        }
-        return result;
-
-    }   */
-
     private int indexOf(int id) {
         int result = -1;
-        for (Item item : items) {
-            if (item.getId() == id) {
-                result = item.getId();
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
+                result = items.get(index).getId();
                 break;
             }
         }
