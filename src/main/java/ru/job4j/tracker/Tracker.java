@@ -22,7 +22,7 @@ public class Tracker {
         int result = -1;
         for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
-                result = items.get(index).getId();
+                result = index;
                 break;
             }
         }
