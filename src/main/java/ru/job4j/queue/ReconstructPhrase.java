@@ -20,7 +20,7 @@ public class ReconstructPhrase {
             if (i % 2 == 0)  {
                 temp.append(evenElements.poll());
             } else {
-                evenElements.remove();
+                evenElements.poll();
             }
         }
         return temp.toString();
