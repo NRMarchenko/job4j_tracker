@@ -49,7 +49,4 @@ public class Item {
     public LocalDateTime getCreated() {
         return created;
     }
-
-    public static void main(String[] args) {
-    }
 }
